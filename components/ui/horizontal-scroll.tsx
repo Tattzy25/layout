@@ -92,7 +92,7 @@ export function ScrollerHorizontalDemo() {
               }}
               className={`flex h-32 w-[180px] shrink-0 flex-col items-center justify-center rounded-md bg-accent p-4 cursor-pointer ring-offset-2 ring-offset-background transition-all duration-200 ease-in-out focus:outline-none ${isSelected ? "ring-4 ring-primary/80" : "ring-2 ring-primary/60"}`}
             >
-              <div className="font-medium text-lg">{label}</div>
+              <div className="font-medium text-[20px] md:text-[24px] text-center break-words">{label}</div>
             </div>
           );
         })}
