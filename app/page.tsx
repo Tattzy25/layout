@@ -13,11 +13,11 @@ export default function Page() {
       </section>
 
       {/* Two vertical scrollers side-by-side */}
-      <section className="flex gap-[200px] mb-6">
-        <div className="w-1/2">
+      <section className="flex gap-[100px] justify-center mb-[10px]">
+        <div className="flex-1 max-w-[480px]">
           <ScrollerHiddenDemo />
         </div>
-        <div className="w-1/2">
+        <div className="flex-1 max-w-[480px]">
           <ScrollerHiddenDemo />
         </div>
       </section>
