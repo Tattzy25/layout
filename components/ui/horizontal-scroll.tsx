@@ -18,7 +18,64 @@ export function ScrollerHorizontalDemo() {
   return (
     <Scroller orientation="horizontal" hideScrollbar className="w-full p-4" asChild>
       <div className="flex items-center gap-2.5">
-        {Array.from({ length: 10 }).map((_, index) => {
+        {[
+          "Neo-Traditional",
+          "Minimal",
+          "Abstract",
+          "Dotwork",
+          "Pointillism",
+          "Surreal",
+          "New School",
+          "3D",
+          "Anaglyph",
+          "Mandala",
+          "Sketch",
+          "Etching",
+          "Engraving",
+          "Glitch",
+          "Vaporwave",
+          "UV",
+          "Blacklight",
+          "Japanese",
+          "Irezumi",
+          "Ornamental",
+          "Blackwork",
+          "Script",
+          "Calligraphy",
+          "Gothic",
+          "Trash Polka",
+          "Watercolor",
+          "Pixel",
+          "8-bit",
+          "American Old School",
+          "Negative Space",
+          "Bio-organic",
+          "Anime",
+          "Manga",
+          "Celtic",
+          "Nordic",
+          "Biomechanical",
+          "Tribal Polynesian",
+          "Māori",
+          "Samoan",
+          "Marquesan",
+          "Sticker",
+          "Patch",
+          "Black & Grey",
+          "Micro-Realism",
+          "Realism",
+          "Geometric",
+          "Cyberpunk",
+          "Futuristic",
+          "Comic",
+          "Cartoon",
+          "Linework",
+          "Illustrative",
+          "Fine Line",
+          "Single Needle",
+          "Chicano",
+          "Lettering"
+        ].map((label, index) => {
           const isSelected = selected.has(index);
           return (
             <div
@@ -35,10 +92,7 @@ export function ScrollerHorizontalDemo() {
               }}
               className={`flex h-32 w-[180px] shrink-0 flex-col items-center justify-center rounded-md bg-accent p-4 cursor-pointer ring-offset-2 ring-offset-background transition-all duration-200 ease-in-out focus:outline-none ${isSelected ? "ring-4 ring-primary/80" : "ring-2 ring-primary/60"}`}
             >
-              <div className="font-medium text-lg">Card {index + 1}</div>
-              <span className="text-muted-foreground text-sm">
-                Scroll horizontally
-              </span>
+              <div className="font-medium text-lg">{label}</div>
             </div>
           );
         })}
