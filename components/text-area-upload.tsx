@@ -18,7 +18,7 @@ import {
   FileUploadTrigger,
 } from "@/components/ui/file-upload";
  
-export function FileUploadChatInputDemo() {
+export function FileUploadChatInput() {
   const [input, setInput] = React.useState("");
   const [files, setFiles] = React.useState<File[]>([]);
   const [isUploading, setIsUploading] = React.useState(false);

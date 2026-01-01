@@ -3,16 +3,22 @@
 import React, { useState } from "react";
 import { Scroller } from "@/components/ui/scroller";
  
-export function ScrollerHorizontalDemo() {
-  const [selected, setSelected] = useState<Set<number>>(new Set());
+export function ScrollerHorizontal({
+  selected: selectedProp,
+  onSelect,
+}: {
+  selected?: number | null
+  onSelect?: (index: number | null, label?: string) => void
+}) {
+  const [internalSelected, setInternalSelected] = useState<number | null>(null);
+  const selected = selectedProp ?? internalSelected;
 
-  function toggle(index: number) {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
-      return next;
-    });
+  function toggle(index: number, label: string) {
+    if (onSelect) {
+      onSelect(selected === index ? null : index, selected === index ? undefined : label);
+    } else {
+      setInternalSelected((prev) => (prev === index ? null : index));
+    }
   }
 
   return (
@@ -78,18 +84,18 @@ export function ScrollerHorizontalDemo() {
             ["Lettering", "Hope You’re Sure"]
           ];
           return items.map(([name, comment], index) => {
-            const isSelected = selected.has(index);
+            const isSelected = selected === index;
             return (
               <div
                 key={index}
                 role="button"
                 tabIndex={0}
                 aria-pressed={isSelected}
-                onClick={() => toggle(index)}
+                onClick={() => toggle(index, name)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    toggle(index);
+                    toggle(index, name);
                   }
                 }}
                 className={`flex h-32 w-[180px] shrink-0 flex-col items-center justify-center rounded-md bg-accent p-4 cursor-pointer ring-offset-2 ring-offset-background transition-all duration-200 ease-in-out focus:outline-none ${isSelected ? "ring-4 ring-primary/80" : "ring-2 ring-primary/60"}`}
@@ -120,16 +126,22 @@ export function ScrollerHorizontalDemo() {
  * This component is intentionally separate so its labels do not affect the top scroller.
  * Only the label array below was added — everything else mirrors the top scroller's behavior.
  */
-export function ScrollerHorizontalBottomDemo() {
-  const [selected, setSelected] = useState<Set<number>>(new Set());
+export function ScrollerHorizontalBottom({
+  selected: selectedProp,
+  onSelect,
+}: {
+  selected?: number | null
+  onSelect?: (index: number | null, label?: string) => void
+}) {
+  const [internalSelected, setInternalSelected] = useState<number | null>(null);
+  const selected = selectedProp ?? internalSelected;
 
-  function toggle(index: number) {
-    setSelected((prev) => {
-      const next = new Set(prev);
-      if (next.has(index)) next.delete(index);
-      else next.add(index);
-      return next;
-    });
+  function toggle(index: number, label: string) {
+    if (onSelect) {
+      onSelect(selected === index ? null : index, selected === index ? undefined : label);
+    } else {
+      setInternalSelected((prev) => (prev === index ? null : index));
+    }
   }
 
   return (
@@ -166,18 +178,18 @@ export function ScrollerHorizontalBottomDemo() {
             "1px 1px 0 rgba(0,0,0,0.95), 2px 2px 0 rgba(0,0,0,0.9), 3px 3px 0 rgba(0,0,0,0.85), 0 8px 20px rgba(0,0,0,0.6)";
 
           return items.map(([name, comment], index) => {
-            const isSelected = selected.has(index);
+            const isSelected = selected === index;
             return (
               <div
                 key={index}
                 role="button"
                 tabIndex={0}
                 aria-pressed={isSelected}
-                onClick={() => toggle(index)}
+                onClick={() => toggle(index, name)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    toggle(index);
+                    toggle(index, name);
                   }
                 }}
                 className={`flex h-32 w-[180px] shrink-0 flex-col items-center justify-center rounded-md bg-accent p-4 cursor-pointer ring-offset-2 ring-offset-background transition-all duration-200 ease-in-out focus:outline-none ${isSelected ? "ring-4 ring-primary/80" : "ring-2 ring-primary/60"}`}
