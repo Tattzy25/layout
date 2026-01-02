@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { ScrollerHorizontal, ScrollerHorizontalBottom } from '@/components/ui/horizontal-scroll';
 import { ScrollerHidden, ScrollerVerticalAspect } from '@/components/ui/verticle-scroll';
 import { SelectionsBar } from '@/components/selections';
-import { FileUploadChatInput } from '@/components/text-area-upload';
+import { FileUploadChatInput } from "@/components/text-area-upload";
+
 
 export default function Page() {
   const [placement, setPlacement] = useState<number | null>(null);
@@ -27,12 +28,11 @@ export default function Page() {
 
   return (
     <main className="container mx-auto p-6">
-      <div className="mb-4">
-        <FileUploadChatInput />
-      </div>
-
       {/* Badge bar (shows selections from all components) */}
-      <SelectionsBar items={badges} />
+      <div className="w-full mb-2 flex flex-col gap-2">
+        <FileUploadChatInput />
+        <SelectionsBar items={badges} />
+      </div>
 
       {/* Top horizontal scroller (Styles) */}
       <section className="mb-[10px]">

@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { saveSelections } from "@/components/US-bank";
-
 export type SelectionBadge = {
   key: string;
   label: string;
@@ -37,7 +36,6 @@ export function SelectionsBar({ items }: SelectionsBarProps) {
   }
 
   return (
-    <div className="w-full mb-2">
       <div
         className="grid w-full gap-2"
         style={{
@@ -57,6 +55,5 @@ export function SelectionsBar({ items }: SelectionsBarProps) {
           </Button>
         ))}
       </div>
-    </div>
   );
 }

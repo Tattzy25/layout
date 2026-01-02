@@ -92,7 +92,7 @@ export function FileUploadChatInput() {
     [],
   );
  
-  return (
+    return (
     <FileUpload
       value={files}
       onValueChange={setFiles}
@@ -100,7 +100,7 @@ export function FileUploadChatInput() {
       onFileReject={onFileReject}
       maxFiles={10}
       maxSize={5 * 1024 * 1024}
-      className="relative h-[400px] w-full items-center p-8"
+      className="relative w-full items-center mb-[10px]"
       multiple
       disabled={isUploading}
     >
