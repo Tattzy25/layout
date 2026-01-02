@@ -92,7 +92,7 @@ export function FileUploadChatInput() {
     [],
   );
  
-    return (
+  return (
     <FileUpload
       value={files}
       onValueChange={setFiles}
@@ -100,7 +100,7 @@ export function FileUploadChatInput() {
       onFileReject={onFileReject}
       maxFiles={10}
       maxSize={5 * 1024 * 1024}
-      className="relative w-full items-center mb-[10px]"
+      className="relative h-[400px] w-full items-center p-8"
       multiple
       disabled={isUploading}
     >
@@ -122,14 +122,14 @@ export function FileUploadChatInput() {
       </FileUploadDropzone>
       <form
         onSubmit={onSubmit}
-        className="relative flex w-full flex-col gap-2.5 rounded-md border border-input py-2 outline-none focus-within:ring-1 focus-within:ring-ring/50"
+        className="relative flex w-full max-w-md flex-col gap-2.5 rounded-md border border-input px-3 py-2 outline-none focus-within:ring-1 focus-within:ring-ring/50"
       >
         <FileUploadList
           orientation="horizontal"
           className="overflow-x-auto px-0 py-1"
         >
           {files.map((file, index) => (
-            <FileUploadItem key={index} value={file} className="p-1.5">
+            <FileUploadItem key={index} value={file} className="max-w-52 p-1.5">
               <FileUploadItemPreview className="size-8 [&>svg]:size-5">
                 <FileUploadItemProgress variant="fill" />
               </FileUploadItemPreview>
